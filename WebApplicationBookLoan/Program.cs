@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using WebApplicationBookLoan.Data;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ConnectionContext>(options => options.UseMySql("server=localhost;initial catalog=webservicebookloan;uid=root;pwd=databasehebert",
@@ -28,6 +30,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Loans}/{action=Index}/{id?}");
 
 app.Run();
