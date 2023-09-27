@@ -1,4 +1,10 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using WebApplicationBookLoan.Data;
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<ConnectionContext>(options => options.UseMySql("server=localhost;initial catalog=webservicebookloan;uid=root;pwd=databasehebert",
+Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.34-mysql")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
